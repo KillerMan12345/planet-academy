@@ -1,0 +1,500 @@
+/* ==========================================================================
+   🪐 星球学院 (Planet Academy) · 学院具象微教具与场景专属样式
+   ========================================================================== */
+
+/* 学院头部导航与标题 */
+.college-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: var(--radius-card);
+  background: rgba(28, 37, 65, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.college-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.college-main-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.college-sub-motto {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* 学院内子模块 Tab 切换条 */
+.college-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  scrollbar-width: none;
+}
+.college-tabs::-webkit-scrollbar { display: none; }
+
+.college-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(28, 37, 65, 0.6);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.college-tab-btn.active {
+  background: #ffffff;
+  color: #1a202c;
+  border-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 具象微教具容器卡片 */
+.tool-stage-box {
+  background: rgba(28, 37, 65, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------------------------------
+   1. 语言学院：怪兽吃字母 (Feed The Monster)
+   ---------------------------------------------------- */
+.monster-arena {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.sound-prompt-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 140, 66, 0.15);
+  border: 2px solid var(--col-lang-primary);
+  border-radius: 30px;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  transition: transform 0.15s;
+}
+.sound-prompt-pill:active { transform: scale(0.96); }
+.sound-prompt-pill .speaker-icon { font-size: 26px; animation: pulseGlow 2s infinite; }
+
+.monster-creature {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 35% 35%, #ff7675, #d63031);
+  border-radius: 50% 50% 45% 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(214, 48, 49, 0.5);
+  transition: transform 0.2s;
+}
+.monster-creature.eating {
+  animation: monsterChew 0.6s ease-in-out;
+}
+@keyframes monsterChew {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.15, 0.85); }
+  60% { transform: scale(0.9, 1.1); }
+}
+
+.monster-eyes {
+  display: flex;
+  gap: 24px;
+  margin-top: -10px;
+}
+.monster-eye {
+  width: 26px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.monster-eye::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  width: 14px;
+  height: 14px;
+  background: #2d3436;
+  border-radius: 50%;
+}
+
+.monster-mouth {
+  width: 70px;
+  height: 38px;
+  background: #2d3436;
+  border-radius: 0 0 35px 35px;
+  margin-top: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+.monster-mouth::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 14px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 0 0 6px 6px;
+}
+.monster-mouth::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  width: 34px;
+  height: 14px;
+  background: #ff7675;
+  border-radius: 17px 17px 0 0;
+}
+
+.letter-cookies-box {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.letter-cookie {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f6e58d, #f0932b);
+  border: 3px solid #e67e22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 900;
+  color: #3b1e00;
+  box-shadow: 0 6px 0 #b33939, 0 10px 16px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.letter-cookie:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b33939;
+}
+
+/* ----------------------------------------------------
+   2. 数理学院：新加坡数学 CPA 十格阵 (Ten-Frame)
+   ---------------------------------------------------- */
+.cpa-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cpa-equation-card {
+  background: rgba(78, 205, 196, 0.15);
+  border: 2px solid var(--col-math-primary);
+  border-radius: 20px;
+  padding: 12px 30px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.ten-frames-grid-wrap {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ten-frame-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 52px);
+  grid-template-rows: repeat(2, 52px);
+  gap: 6px;
+  padding: 10px;
+  background: #172a3a;
+  border: 3px solid #2eb8a8;
+  border-radius: 16px;
+}
+
+.frame-cell {
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cpa-counter {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  animation: softFloat 2s infinite ease-in-out;
+}
+.counter-red {
+  background: radial-gradient(circle at 35% 35%, #ff7675, #d63031);
+  box-shadow: 0 3px 8px rgba(214, 48, 49, 0.6);
+}
+.counter-blue {
+  background: radial-gradient(circle at 35% 35%, #74b9ff, #0984e3);
+  box-shadow: 0 3px 8px rgba(9, 132, 227, 0.6);
+}
+
+/* ----------------------------------------------------
+   3. 科学学院：PhET 浮沉实验室 (Buoyancy Simulator)
+   ---------------------------------------------------- */
+.phet-tank-wrapper {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.water-tank {
+  width: 100%;
+  height: 220px;
+  border: 4px solid #45b7d1;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  background: linear-gradient(180deg, transparent 35%, rgba(69, 183, 209, 0.4) 35%, rgba(45, 142, 168, 0.7) 100%);
+  overflow: hidden;
+  box-shadow: inset 0 -20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.water-surface-line {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #ffffff;
+  opacity: 0.8;
+  box-shadow: 0 0 10px #45b7d1;
+}
+
+.submerged-block {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  left: 50%;
+  margin-left: -34px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+  transition: top 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.material-selector {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.material-btn {
+  padding: 8px 16px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.material-btn.active {
+  background: var(--col-sci-primary);
+  border-color: #ffffff;
+  box-shadow: 0 0 15px var(--col-sci-primary);
+}
+
+/* ----------------------------------------------------
+   4. 编程学院：Blockly 积木迷宫 (Maze Explorer)
+   ---------------------------------------------------- */
+.code-maze-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.maze-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 48px);
+  grid-template-rows: repeat(5, 48px);
+  gap: 4px;
+  padding: 8px;
+  background: #1a162b;
+  border: 3px solid #9b59b6;
+  border-radius: 16px;
+}
+
+.maze-cell {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.maze-cell.wall { background: #34284f; }
+
+.block-actions-palette {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.code-block-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: var(--col-code-primary);
+  border: 2px solid #be79df;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #6c3483;
+}
+.code-block-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #6c3483; }
+
+.program-queue-tray {
+  width: 100%;
+  min-height: 52px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+/* ----------------------------------------------------
+   5. 美育学院：Chrome Music Lab 风格 Song Maker
+   ---------------------------------------------------- */
+.music-maker-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.music-matrix {
+  display: grid;
+  grid-template-columns: repeat(8, 38px);
+  grid-template-rows: repeat(4, 38px);
+  gap: 6px;
+  padding: 10px;
+  background: #2a1e17;
+  border: 3px solid #f39c12;
+  border-radius: 16px;
+}
+
+.music-cell {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+.music-cell.active-p1 { background: #e74c3c; box-shadow: 0 0 10px #e74c3c; }
+.music-cell.active-p2 { background: #f39c12; box-shadow: 0 0 10px #f39c12; }
+.music-cell.active-p3 { background: #2ecc71; box-shadow: 0 0 10px #2ecc71; }
+.music-cell.active-p4 { background: #3498db; box-shadow: 0 0 10px #3498db; }
+.music-cell.playing-col { filter: brightness(1.7); transform: scale(1.08); }
+
+/* ----------------------------------------------------
+   6. 智力竞技乐园：经典对战与棋类
+   ---------------------------------------------------- */
+.arena-hall {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gomoku-board {
+  display: grid;
+  grid-template-columns: repeat(11, 28px);
+  grid-template-rows: repeat(11, 28px);
+  gap: 1px;
+  background: #d4a373;
+  padding: 8px;
+  border: 3px solid #8d5b4c;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  margin: 0 auto;
+}
+.gomoku-cell {
+  background: #faedcd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.stone-black {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #4a4a4a, #111111);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.stone-white {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff, #dcdde1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}

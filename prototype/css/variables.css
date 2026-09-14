@@ -1,0 +1,108 @@
+/* ==========================================================================
+   🪐 星球学院 (Planet Academy) · CSS 核心变量与设计规范
+   依据 PRD v1.0 与儿童防挫无惩罚公约制定
+   ========================================================================== */
+
+:root {
+  /* 🌌 宇宙大厅主题色 */
+  --cosmos-bg: #0b132b;
+  --cosmos-surface: #1c2541;
+  --cosmos-card: #223055;
+  --cosmos-border: #3a506b;
+  --cosmos-accent: #f9d342;
+  --cosmos-glow: rgba(249, 211, 66, 0.4);
+
+  /* 🏛️ 五大学院专属主题色盘 */
+  /* 1. 语言阅读学院 (Language) */
+  --col-lang-primary: #ff8c42;
+  --col-lang-light: #ffe8d6;
+  --col-lang-dark: #d9681f;
+  --col-lang-grad: linear-gradient(135deg, #ff8c42 0%, #ffa86e 100%);
+  --col-lang-glow: rgba(255, 140, 66, 0.35);
+
+  /* 2. 数理逻辑学院 (Math) */
+  --col-math-primary: #2eb8a8;
+  --col-math-light: #e0f7f6;
+  --col-math-dark: #1b8a7d;
+  --col-math-grad: linear-gradient(135deg, #2eb8a8 0%, #4ecdc4 100%);
+  --col-math-glow: rgba(78, 205, 196, 0.35);
+
+  /* 3. 科学探究学院 (Science) */
+  --col-sci-primary: #45b7d1;
+  --col-sci-light: #e2f4f8;
+  --col-sci-dark: #27889e;
+  --col-sci-grad: linear-gradient(135deg, #37a2bc 0%, #5bcbe2 100%);
+  --col-sci-glow: rgba(69, 183, 209, 0.35);
+
+  /* 4. 少儿编程学院 (Coding) */
+  --col-code-primary: #9b59b6;
+  --col-code-light: #f3e8f8;
+  --col-code-dark: #763c8e;
+  --col-code-grad: linear-gradient(135deg, #8e44ad 0%, #be79df 100%);
+  --col-code-glow: rgba(155, 89, 182, 0.35);
+
+  /* 5. 音乐美育学院 (Arts) */
+  --col-art-primary: #f39c12;
+  --col-art-light: #fef5e7;
+  --col-art-dark: #b87105;
+  --col-art-grad: linear-gradient(135deg, #e67e22 0%, #f1c40f 100%);
+  --col-art-glow: rgba(243, 156, 18, 0.35);
+
+  /* 6. 智力竞技乐园 (Arena) */
+  --col-arena-primary: #e8a838;
+  --col-arena-light: #fdf5e6;
+  --col-arena-dark: #ab7517;
+  --col-arena-grad: linear-gradient(135deg, #d4881e 0%, #f5b041 100%);
+  --col-arena-glow: rgba(232, 168, 56, 0.35);
+
+  /* 🌟 星光货币与通用辅助色 */
+  --star-gold: #ffc83b;
+  --star-glow: #ffe600;
+  --success-color: #2ecc71;
+  --danger-soft: #ff7675;
+  --text-main: #ffffff;
+  --text-muted: #a0aec0;
+  --text-dark: #2d3748;
+
+  /* 🛡️ 儿童无挫交互公约规范 */
+  --min-touch: 88px;       /* 交互控件最小热区 */
+  --touch-gap: 24px;       /* 控件间距 */
+  --radius-card: 24px;     /* 卡片圆角 */
+  --radius-btn: 32px;      /* 药丸按钮圆角 */
+  --radius-badge: 16px;    /* 勋章标签圆角 */
+
+  /* 字体系统 */
+  --font-child: 'Nunito', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 果冻轻抖动动画：答错不给红叉，无惩罚，温和提示 */
+@keyframes jellyShake {
+  0% { transform: scale(1, 1); }
+  20% { transform: scale(0.92, 1.08) translateX(-8px); }
+  40% { transform: scale(1.08, 0.92) translateX(8px); }
+  60% { transform: scale(0.96, 1.04) translateX(-4px); }
+  80% { transform: scale(1.02, 0.98) translateX(4px); }
+  100% { transform: scale(1, 1) translateX(0); }
+}
+
+.jelly-shake {
+  animation: jellyShake 0.5s ease-in-out;
+  opacity: 0.65;
+  transition: opacity 0.3s;
+}
+
+/* 庆祝光晕与轻微浮动 */
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(249, 211, 66, 0.4)); }
+  50% { filter: drop-shadow(0 0 25px rgba(249, 211, 66, 0.8)); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

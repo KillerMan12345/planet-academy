@@ -1,0 +1,339 @@
+/* ==========================================================================
+   🪐 星球学院 (Planet Academy) · 全局与儿童交互组件样式
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-child);
+  background-color: var(--cosmos-bg);
+  color: var(--text-main);
+}
+
+/* 🌌 宇宙深空与星辰背景 */
+#cosmos-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, #1e295d 0%, #0b132b 75%, #050a18 100%);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle var(--duration, 3s) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.nebula {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+.nebula-1 { top: -100px; left: -100px; background: #9b59b6; }
+.nebula-2 { bottom: -150px; right: -150px; background: #4ecdc4; }
+.nebula-3 { top: 40%; left: 60%; background: #ff8c42; opacity: 0.15; }
+
+/* 📱 主容器（平板与手机自适应视口） */
+#app-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
+}
+
+/* 🌟 顶部状态栏 Header */
+#top-header {
+  height: 68px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(28, 37, 65, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.back-btn:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.brand-badge .logo-icon {
+  font-size: 26px;
+  animation: softFloat 4s infinite ease-in-out;
+}
+
+/* 星光值胶囊 */
+.starlight-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(255, 200, 59, 0.2), rgba(255, 140, 66, 0.25));
+  border: 2px solid var(--star-gold);
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 17px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 200, 59, 0.3);
+  transition: transform 0.2s;
+}
+.starlight-pill:active {
+  transform: scale(0.95);
+}
+.starlight-pill .star-icon {
+  font-size: 22px;
+  color: var(--star-gold);
+  animation: pulseGlow 2.5s infinite;
+}
+
+.tool-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+.tool-icon-btn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* 🖼️ 主内容路由视口 */
+#main-viewport {
+  flex: 1;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 20px 96px 20px; /* 底部预留Dock空间 */
+}
+
+/* 🛴 底部四维 Dock 导航 */
+#bottom-dock {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 680px;
+  height: 68px;
+  background: rgba(28, 37, 65, 0.92);
+  backdrop-filter: blur(16px);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px 16px;
+  border-radius: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 72px;
+}
+.dock-item .dock-icon {
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+.dock-item .dock-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.dock-item.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 200, 59, 0.25), rgba(78, 205, 196, 0.25));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dock-item.active .dock-icon {
+  transform: scale(1.15) translateY(-2px);
+}
+
+/* 🔘 儿童大触控立体按钮（触控热区 ≥ 88px 规范支持） */
+.btn-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 58px;
+  padding: 0 28px;
+  border-radius: var(--radius-btn);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-child:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-lang { background: var(--col-lang-grad); }
+.btn-math { background: var(--col-math-grad); }
+.btn-sci  { background: var(--col-sci-grad); }
+.btn-code { background: var(--col-code-grad); }
+.btn-art  { background: var(--col-art-grad); }
+.btn-arena{ background: var(--col-arena-grad); }
+.btn-gold { background: linear-gradient(135deg, #f9d342, #ff8c42); color: #432200; }
+
+/* 🎊 彩带粒子全屏层 */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* 🎈 奖励获得 Toast 提示 */
+.reward-toast {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: linear-gradient(135deg, #ffc83b, #ff8c42);
+  color: #3b1e00;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 10px 30px rgba(255, 200, 59, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reward-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 遮罩弹窗层 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  background: var(--cosmos-surface);
+  border: 2px solid var(--cosmos-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+.modal-overlay.active .modal-box {
+  transform: scale(1);
+}

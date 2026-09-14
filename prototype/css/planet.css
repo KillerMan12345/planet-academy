@@ -1,0 +1,232 @@
+/* ==========================================================================
+   🪐 星球学院 (Planet Academy) · 我的星球生态与宇宙大厅卡片样式
+   ========================================================================== */
+
+/* 🌌 宇宙大厅主视图 */
+.cosmos-view {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 🪐 顶部星球焦点区 */
+.planet-hero-card {
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, #203164 0%, #172144 80%, #101833 100%);
+  border: 2px solid rgba(249, 211, 66, 0.25);
+  border-radius: var(--radius-card);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(78, 205, 196, 0.1);
+}
+
+.planet-stage-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cosmos-accent);
+  margin-bottom: 12px;
+}
+
+/* 3D 浮动星球视觉容器 */
+.planet-sphere-wrap {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 10px 0 16px 0;
+  cursor: pointer;
+}
+
+.planet-sphere {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset -20px -20px 40px rgba(0, 0, 0, 0.7),
+              inset 15px 15px 30px rgba(255, 255, 255, 0.3),
+              0 0 35px var(--planet-glow, rgba(78, 205, 196, 0.45));
+  animation: softFloat 5s ease-in-out infinite;
+  transition: all 0.5s;
+}
+
+/* 行星环 */
+.planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -115px;
+  border: 6px solid rgba(249, 211, 66, 0.5);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(249, 211, 66, 0.3);
+}
+
+/* 星球等级地貌渐变 */
+.planet-stage-1 { background: radial-gradient(circle at 35% 35%, #95a5a6, #34495e 70%, #1a252f 100%); }
+.planet-stage-2 { background: radial-gradient(circle at 35% 35%, #2ecc71, #16a085 60%, #0e6251 100%); }
+.planet-stage-3 { background: radial-gradient(circle at 35% 35%, #3498db, #2ecc71 50%, #1b4f72 100%); }
+.planet-stage-4 { background: radial-gradient(circle at 35% 35%, #9b59b6, #e74c3c 45%, #2c3e50 100%); }
+
+/* 狮子守护兽 */
+.planet-mascot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-size: 46px;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  animation: softFloat 3s ease-in-out infinite alternate;
+  z-index: 5;
+  transition: transform 0.2s;
+}
+.planet-mascot:active {
+  transform: scale(1.25) rotate(-10deg);
+}
+
+.mascot-bubble {
+  position: absolute;
+  top: -32px;
+  right: -20px;
+  background: #ffffff;
+  color: #2d3748;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 14px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+.mascot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 18px;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #fff transparent;
+}
+
+.planet-desc {
+  font-size: 15px;
+  color: #cbd5e0;
+  text-align: center;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.planet-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* 🏛️ 五大学院与竞技乐园卡片矩阵 */
+.colleges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.college-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.college-card:active {
+  transform: scale(0.97);
+}
+
+.card-lang { background: var(--col-lang-grad); }
+.card-math { background: var(--col-math-grad); }
+.card-sci  { background: var(--col-sci-grad); }
+.card-code { background: var(--col-code-grad); }
+.card-art  { background: var(--col-art-grad); }
+.card-arena{ background: var(--col-arena-grad); }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.college-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.college-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.college-motto {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.college-icon {
+  font-size: 42px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.module-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.module-badge {
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.enter-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b132b" />
+  <title>🪐 星球学院 · Planet Academy 高保真交互原型</title>
+  
+  <!-- 儿童友好圆润字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- 核心样式规范 -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/planet.css" />
+  <link rel="stylesheet" href="css/colleges.css" />
+</head>
+<body>
+  <!-- 🌌 宇宙深空与星辰背景 -->
+  <div id="cosmos-bg">
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+  </div>
+
+  <!-- 📱 主容器（平板与手机响应式视口） -->
+  <div id="app-container">
+    <!-- 🌟 顶部状态栏 -->
+    <header id="top-header">
+      <div class="header-left">
+        <button class="back-btn" onclick="App.navigate('cosmos')" title="返回宇宙大厅">
+          🌌
+        </button>
+        <div class="brand-badge">
+          <span class="logo-icon">🪐</span>
+          <span>星球学院</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- 星光值药丸 -->
+        <div class="starlight-pill" onclick="App.navigate('planet')" title="点击进入我的星球">
+          <span class="star-icon">✨</span>
+          <span id="top-starlight-count">35</span>
+        </div>
+
+        <!-- 音效开关 -->
+        <button class="tool-icon-btn" id="btn-audio-toggle" onclick="App.toggleAudio()" title="切换音效">
+          🔊
+        </button>
+
+        <!-- 全屏沉浸 -->
+        <button class="tool-icon-btn" onclick="App.toggleFullscreen()" title="全屏沉浸">
+          ⛶
+        </button>
+      </div>
+    </header>
+
+    <!-- 🖼️ 主页面路由视口 -->
+    <main id="main-viewport"></main>
+
+    <!-- 🛴 底部四维 Dock 导航 -->
+    <nav id="bottom-dock">
+      <button class="dock-item active" data-route="cosmos" onclick="App.navigate('cosmos')">
+        <span class="dock-icon">🌌</span>
+        <span class="dock-label">宇宙大厅</span>
+      </button>
+      <button class="dock-item" data-route="planet" onclick="App.navigate('planet')">
+        <span class="dock-icon">🪐</span>
+        <span class="dock-label">我的星球</span>
+      </button>
+      <button class="dock-item" data-route="arena" onclick="App.navigate('arena')">
+        <span class="dock-icon">🏆</span>
+        <span class="dock-label">竞技乐园</span>
+      </button>
+      <button class="dock-item" data-route="parent" onclick="App.navigate('parent')">
+        <span class="dock-icon">📊</span>
+        <span class="dock-label">家长中心</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- 🎈 奖励 Toast 浮窗 -->
+  <div id="reward-toast" class="reward-toast">✨ 获得奖励！</div>
+
+  <!-- 🎊 全屏七彩纸屑彩带画布 -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- 核心逻辑脚本 -->
+  <script src="js/audio.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/colleges/language.js"></script>
+  <script src="js/colleges/math.js"></script>
+  <script src="js/colleges/science.js"></script>
+  <script src="js/colleges/coding.js"></script>
+  <script src="js/colleges/arts.js"></script>
+  <script src="js/arena.js"></script>
+  <script src="js/planet-view.js"></script>
+  <script src="js/parent-view.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
